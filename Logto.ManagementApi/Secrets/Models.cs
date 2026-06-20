@@ -1,0 +1,1 @@
+namespace Logto.ManagementApi.Secrets;
