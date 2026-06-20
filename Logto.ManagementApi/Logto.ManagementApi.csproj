@@ -10,8 +10,9 @@
     <PackageId>Logto.ManagementApi</PackageId>
     <Version>0.1.0</Version>
     <Authors>Guy Swartwood</Authors>
-    <Description>A .NET client library for the Logto Management API, handling machine-to-machine authentication automatically.</Description>
-    <PackageTags>logto;management-api;authentication;identity</PackageTags>
+    <Description>Unoffical .NET client library for the Logto Management API. This project is community‑maintained and not affiliated with the Logto</Description>
+    <PackageTags>logto management-api client sdk dotnet csharp rest oauth authentication oidc identity aspnetcore m2m unofficial</PackageTags>
+    <PackageUrl>https://github.com/gswartwood/logto-management-api</PackageUrl>
     <RepositoryUrl>https://github.com/gswartwood/logto-management-api</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -20,10 +21,16 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.9" />
+    <PackageReference Include="MinVer" Version="5.0.0" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
+
+  <PropertyGroup>
+    <MinVerTagPrefix>v</MinVerTagPrefix>
+    <MinVerDefaultPreReleaseIdentifiers>preview</MinVerDefaultPreReleaseIdentifiers>
+  </PropertyGroup>
 
 </Project>
