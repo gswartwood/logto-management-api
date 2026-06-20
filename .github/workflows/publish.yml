@@ -1,0 +1,41 @@
+name: Publish to NuGet (Trusted Publishing)
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  id-token: write
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # REQUIRED for MinVer
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Pack (MinVer auto-versioning)
+        run: dotnet pack Logto.ManagementApi/Logto.ManagementApi.csproj \
+             --configuration Release \
+             --no-build \
+             --output ./nupkg
+
+      - name: Publish to NuGet (OIDC Trusted Publishing)
+        run: dotnet nuget push "./nupkg/*.nupkg" \
+             --source "https://api.nuget.org/v3/index.json" \
+             --skip-duplicate
