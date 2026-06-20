@@ -1,4 +1,4 @@
-name: Publish to NuGet (Trusted Publishing)
+name: Publish to NuGet
 
 on:
   push:
@@ -32,5 +32,5 @@ jobs:
       - name: Pack (MinVer auto-versioning)
         run: dotnet pack Logto.ManagementApi/Logto.ManagementApi.csproj --configuration Release --no-build --output ./nupkg
 
-      - name: Publish to NuGet (OIDC Trusted Publishing)
-        run: dotnet nuget push "./nupkg/*.nupkg" --source "https://api.nuget.org/v3/index.json" --skip-duplicate
+      - name: Publish to NuGet
+        run: dotnet nuget push "./nupkg/*.nupkg" --source "https://api.nuget.org/v3/index.json" --api-key ${{ secrets.NUGET_API_KEY }} --skip-duplicate
