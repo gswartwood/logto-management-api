@@ -3,7 +3,11 @@ name: Build
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - 'Logto.ManagementApi/**'
   pull_request:
+    paths:
+      - 'Logto.ManagementApi/**'
 
 permissions:
   contents: read
