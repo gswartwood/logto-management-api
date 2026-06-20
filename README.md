@@ -1,5 +1,8 @@
 # Logto.ManagementApi
 
+[![GitHub](https://img.shields.io/github/license/gswartwood/logto-management-api?color=594ae2&logo=github&style=flat-square)](https://github.com/gswartwood/logto-management-api/blob/main/LICENSE)
+[![NuGet version](https://img.shields.io/nuget/v/Logto.ManagementApi?color=ff4081&label=nuget%20version&logo=nuget&style=flat-square)](https://www.nuget.org/packages/Logto.ManagementApi/)
+
 An unofficial .NET client library for the [Logto Management API](https://docs.logto.io/docs/references/management-api/). Handles machine-to-machine (M2M) authentication automatically, including token acquisition and refresh. This library is for interacting with Logto's management API. It provides no support in providing client/server side authentication/authorization of users or machine-to-machine (MTM) tokens. If you are looking for that, please refer to [Logto C#](https://github.com/logto-io/csharp) page.
 
 ## Features
